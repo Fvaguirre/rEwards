@@ -30,6 +30,7 @@ public class SignupActivity extends AppCompatActivity {
     @BindView(R.id.input_reEnterPassword) EditText _reEnterPasswordText;
     @BindView(R.id.btn_signup) Button _signupButton;
     @BindView(R.id.link_login) TextView _loginLink;
+    @BindView(R.id.businessAccount) TextView _businessAccount;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,12 +38,24 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
         ButterKnife.bind(this);
 
+        _businessAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), UserTypeSignup.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
         _signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signup();
             }
         });
+
+
 
         _loginLink.setOnClickListener(new View.OnClickListener() {
             @Override
